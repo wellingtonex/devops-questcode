@@ -15,7 +15,7 @@ spec:
         app: backend-user
     spec:
       containers:
-      - name: backend-user-container
+      - name: backend-user
         image: wellingtonex/backend-user:alpha
         ports:
         - containerPort: 3020
