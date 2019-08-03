@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-scm
+  labels:
+    app: backend-scm
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-scm
+  template:
+    metadata:
+      labels:
+        app: backend-scm
+    spec:
+      containers:
+      - name: backend-scm
+        image: wellingtonex/backend-scm:alpha
+        ports:
+        - containerPort: 3030
+        env:
+        - name: NODE_ENV
+          value: "staging"
+        - name: GITHUB_CLIENT_ID
+          value: "943e0745237001f0397c"
+        - name: GITHUB_CLIENT_SECRET
+          value: "e9aa23cb40356459691373d6c43ba39c8abd1065"
+        - name: SECRET_OR_KEY
+          value: "chavemestre18"
